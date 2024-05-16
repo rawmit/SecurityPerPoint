@@ -18,7 +18,7 @@ class Methods(Database):
             cursor.execute("INSERT INTO entity(score, lastcheck) VALUES(%s, %s) ; SELECT lastval();", (score, timeCreated))
             id, = cursor.fetchone()
         else:
-            cursor.execute("INSERT INTO entity(id, score, lastcheck) VALUES(%s, %s, %s)", (score, id, timeCreated))
+            cursor.execute("INSERT INTO entity(id, score, lastcheck) VALUES(%s, %s, %s)", (id, score, timeCreated))
         conn.commit()
         conn.close()
         return Entity(id, score, False, timeCreated)
